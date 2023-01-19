@@ -37,4 +37,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_equal product.image_url, data["image_url"]
     assert_equal product.description, data["description"]
   end
+
+  test "destroy" do
+    assert_difference "Product.count", -1 do
+      delete "/products/#{Product.first.id}.json"
+      assert_response 200
+    end
+  end
 end
