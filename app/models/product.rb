@@ -7,5 +7,7 @@ class Product < ApplicationRecord
     price * 0.09
   end
 
-  def 
+  def total
+    price + tax
+  end
 end
