@@ -4,10 +4,12 @@ one:
   name: MyString
   price: 1
   image_url: MyString
-  description: MyString
+  description: TestProductDescription
+  quantity: 1
 
 two:
   name: MyString
   price: 1
   image_url: MyString
-  description: MyString
+  description: TestProductDescription
+  quantity: 1
