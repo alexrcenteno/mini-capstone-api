@@ -1,9 +1,6 @@
 require "test_helper"
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
   test "index" do
     get "/products.json"
     assert_response 200
@@ -17,7 +14,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
 
     data = JSON.parse(response.body)
-    assert_equal ["id", "name", "price", "image_url", "description", "created_at", "updated_at"], data.keys
+    assert_equal ["id", "name", "price", "image_url", "description", "is_discounted?", "tax", "total", "created_at", "updated_at"], data.keys
   end
 
   test "create" do
@@ -33,7 +30,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     data = JSON.parse(response.body)
     assert_equal "Updated name", data["name"]
-    assert_equal product.price, data["price"]
+    assert_equal product.price.to_s, data["price"]
     assert_equal product.image_url, data["image_url"]
     assert_equal product.description, data["description"]
   end
