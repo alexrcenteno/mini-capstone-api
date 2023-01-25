@@ -2,8 +2,11 @@
 
 one:
   name: MyString
-  emailphone_number: MyString
+  email: MyString
+  phone_number: MyString
 
 two:
   name: MyString
-  emailphone_number: MyString
+  email: MyString
+  phone_number: MyString
+  
