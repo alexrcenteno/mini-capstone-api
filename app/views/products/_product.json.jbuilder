@@ -7,6 +7,6 @@ json.tax product.tax
 json.total product.total
 json.quantity product.quantity
 json.supplier product.supplier
-json.image product.image
+json.images product.images
 json.created_at product.created_at
 json.updated_at product.updated_at
