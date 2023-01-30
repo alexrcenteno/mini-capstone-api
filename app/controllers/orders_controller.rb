@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
       subtotal: params[:subtotal],
       tax: params[:tax],
       total: params[:total],
+      user_id: params[:user_id],
     )
     render :show
   end
@@ -13,5 +14,10 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find_by(id: params[:id])
     render :show
+  end
+
+  def index
+    @orders = Order.all
+    render :index
   end
 end

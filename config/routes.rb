@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   post "/orders", controller: "orders", action: "create"
   get "/orders/:id", controller: "orders", action: "show"
+  get "/orders", controller: "orders", action: "index"
 
   #signup
   post "/users" => "users#create"
