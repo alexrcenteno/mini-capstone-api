@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   patch "/products/:id", controller: "products", action: "update"
   delete "/products/:id", controller: "products", action: "destroy"
 
-  post "/orders", controller: "products", action: "create"
+  post "/orders", controller: "orders", action: "create"
+  get "/orders/:id", controller: "orders", action: "show"
 
   #signup
   post "/users" => "users#create"
