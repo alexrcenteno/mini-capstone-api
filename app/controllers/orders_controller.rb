@@ -3,28 +3,28 @@ class OrdersController < ApplicationController
 
   def create
     if current_user
-    product = Product.find_by(id: params[:product_id])
-    quantity = params[:quantity].to_i
-    subtotal = quantity * product.price
-    tax = quantity * product.tax
-    total = subtotal + tax
+      product = Product.find_by(id: params[:product_id])
+      quantity = params[:quantity].to_i
+      subtotal = quantity * product.price
+      tax = quantity * product.tax
+      total = subtotal + tax
 
-    @order = Order.create(
-      product_id: params[:product_id],
-      quantity: quantiy,
-      subtotal: subtotal,
-      tax: tax,
-      total: total,
-      user_id: current_user.id,
-     )
-     render :show
-    else 
-     render json: {}, :unauthorized
+      @order = Order.create(
+        product_id: params[:product_id],
+        quantity: quantity,
+        subtotal: subtotal,
+        tax: tax,
+        total: total,
+        user_id: current_user.id,
+      )
+      render :show
+    else
+      render json: {}, status: :unauthorized
     end
   end
 
   def show
-    @order = current_user.order.find_by(id: params[:id])
+    @order = current_user.orders.find_by(id: params[:id])
 
     if @order
       render :show
@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
     if current_user
       @orders = current_user.orders
       render :index
-    else 
+    else
       render json: {}, status: :unauthorized
     end
   end
