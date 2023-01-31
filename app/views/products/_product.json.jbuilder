@@ -8,5 +8,6 @@ json.total product.total
 json.quantity product.quantity
 json.supplier product.supplier
 json.images product.images
+json.categories product.categories
 json.created_at product.created_at
 json.updated_at product.updated_at
