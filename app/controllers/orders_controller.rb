@@ -19,11 +19,20 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(id: params[:id])
-    render :show
+
+    if current_user && current_user.id == @order.user_id
+      render :show
+    else
+      render json: {}, status: :unauthorized
+    end
   end
 
   def index
-    @orders = Order.all
+    if current_user
+    @orders = current_user.orders
     render :index
+    else
+      render json {}, status :unauthorized
+    end
   end
 end
