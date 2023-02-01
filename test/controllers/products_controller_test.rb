@@ -14,6 +14,10 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     data = JSON.parse(response.body)
     assert_equal Product.count, data.length
+
+    get "/products.json?category=#{catergory.name}"
+    data = json.parse(response.body)
+    assert_equal category.products.length, data.length
   end
 
   test "show" do
