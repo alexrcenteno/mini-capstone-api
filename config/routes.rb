@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get "/orders", controller: "orders", action: "index"
 
   post "/carted_products", controller: "carted_products", action: "create"
+  get "/carted_products" => "carted_products#index"
+  delete "/carted_products/:id" => "carted_products#destroy"
 
   #signup
   post "/users" => "users#create"
