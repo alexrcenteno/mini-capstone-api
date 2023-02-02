@@ -1,4 +1,5 @@
 json.id order.id
+json.carted_products order.carted_products
 json.user_id order.user_id
 json.product_id order.product_id
 json.quantity order.quantity
