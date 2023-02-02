@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "/orders/:id", controller: "orders", action: "show"
   get "/orders", controller: "orders", action: "index"
 
+  post "/carted_products", controller: "carted_products", action: "create"
+
   #signup
   post "/users" => "users#create"
   #login
